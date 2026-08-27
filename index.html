@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Uma surpresa para você 🐸</title>
+    <title>Para você, Bel ♡</title>
 
     <style>
         * {
@@ -15,57 +15,349 @@
 
         body {
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            overflow: hidden;
 
             background:
-                radial-gradient(circle at 50% 40%, #234d3c 0%, #10251e 45%, #07110e 100%);
+                radial-gradient(
+                    circle at 50% 25%,
+                    rgba(55, 105, 82, 0.38),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    to bottom,
+                    #06120d 0%,
+                    #0b2118 60%,
+                    #06130f 100%
+                );
 
-            color: #f2f7f3;
+            color: #f4f7f2;
             font-family: Georgia, "Times New Roman", serif;
-            overflow: hidden;
         }
 
-        .container {
-            width: min(90%, 600px);
+        /* CENA INTEIRA */
+
+        .scene {
+            position: relative;
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            isolation: isolate;
+        }
+
+        /* BRILHO NO CÉU */
+
+        .moon-glow {
+            position: absolute;
+
+            width: 340px;
+            height: 340px;
+
+            top: -190px;
+            right: -70px;
+
+            border-radius: 50%;
+
+            background: rgba(210, 235, 218, 0.06);
+
+            filter: blur(10px);
+        }
+
+        /* LAGO */
+
+        .lake {
+            position: absolute;
+
+            z-index: -1;
+
+            left: -10%;
+            right: -10%;
+            bottom: -17vh;
+
+            height: 48vh;
+
+            border-radius: 50% 50% 0 0 / 18% 18% 0 0;
+
+            background:
+                radial-gradient(
+                    ellipse at 50% 15%,
+                    rgba(82, 145, 113, 0.35),
+                    transparent 45%
+                ),
+                linear-gradient(
+                    to bottom,
+                    #123c2f 0%,
+                    #0b2921 48%,
+                    #061712 100%
+                );
+
+            box-shadow:
+                0 -15px 60px rgba(52, 112, 87, 0.16);
+        }
+
+        /* REFLEXOS NA ÁGUA */
+
+        .lake::before,
+        .lake::after {
+            content: "";
+
+            position: absolute;
+
+            left: 12%;
+
+            width: 76%;
+            height: 1px;
+
+            background: rgba(190, 225, 207, 0.13);
+
+            border-radius: 50%;
+        }
+
+        .lake::before {
+            top: 22%;
+        }
+
+        .lake::after {
+            top: 42%;
+
+            width: 58%;
+            left: 22%;
+        }
+
+        /* VAGALUMES */
+
+        .fireflies {
+            position: absolute;
+
+            inset: 0;
+
+            pointer-events: none;
+        }
+
+        .firefly {
+            position: absolute;
+
+            width: 4px;
+            height: 4px;
+
+            border-radius: 50%;
+
+            background: #e8f5b8;
+
+            box-shadow:
+                0 0 8px 2px rgba(220, 246, 139, 0.7);
+
+            animation:
+                glow 2.8s ease-in-out infinite,
+                drift 7s ease-in-out infinite;
+        }
+
+        .firefly:nth-child(1) {
+            left: 9%;
+            top: 62%;
+
+            animation-delay: -1s, -3s;
+        }
+
+        .firefly:nth-child(2) {
+            left: 17%;
+            top: 45%;
+
+            animation-delay: -2.2s, -1s;
+        }
+
+        .firefly:nth-child(3) {
+            left: 24%;
+            top: 70%;
+
+            animation-delay: -0.5s, -5s;
+        }
+
+        .firefly:nth-child(4) {
+            left: 31%;
+            top: 54%;
+
+            animation-delay: -1.7s, -2s;
+        }
+
+        .firefly:nth-child(5) {
+            left: 42%;
+            top: 67%;
+
+            animation-delay: -2.7s, -4s;
+        }
+
+        .firefly:nth-child(6) {
+            left: 53%;
+            top: 57%;
+
+            animation-delay: -0.8s, -2.5s;
+        }
+
+        .firefly:nth-child(7) {
+            left: 64%;
+            top: 72%;
+
+            animation-delay: -2s, -5.5s;
+        }
+
+        .firefly:nth-child(8) {
+            left: 73%;
+            top: 49%;
+
+            animation-delay: -1.1s, -1.5s;
+        }
+
+        .firefly:nth-child(9) {
+            left: 82%;
+            top: 65%;
+
+            animation-delay: -2.5s, -4.5s;
+        }
+
+        .firefly:nth-child(10) {
+            left: 90%;
+            top: 53%;
+
+            animation-delay: -0.3s, -3.5s;
+        }
+
+        .firefly:nth-child(11) {
+            left: 14%;
+            top: 78%;
+
+            animation-delay: -1.4s, -6s;
+        }
+
+        .firefly:nth-child(12) {
+            left: 88%;
+            top: 78%;
+
+            animation-delay: -2.8s, -2.8s;
+        }
+
+        /* ANIMAÇÃO DOS VAGALUMES */
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                opacity: 0.18;
+                transform: scale(0.75);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.25);
+            }
+        }
+
+        @keyframes drift {
+
+            0%,
+            100% {
+                margin-top: 0;
+                margin-left: 0;
+            }
+
+            50% {
+                margin-top: -18px;
+                margin-left: 10px;
+            }
+        }
+
+        /* CONTEÚDO */
+
+        .content {
+            width: min(90%, 650px);
+
             text-align: center;
+
             padding: 40px 25px;
+
+            margin-top: -7vh;
+
+            animation: appear 1.8s ease forwards;
         }
 
-        .frog {
-            font-size: 80px;
-            margin-bottom: 30px;
+        /* SAPINHO */
 
-            animation: float 3s ease-in-out infinite;
+        .tiny-frog {
+            font-size: 34px;
+
+            margin-bottom: 26px;
+
+            opacity: 0.9;
+
+            animation:
+                float 4s ease-in-out infinite;
         }
+
+        /* TÍTULO */
 
         h1 {
-            font-size: clamp(32px, 7vw, 52px);
+            font-size: clamp(38px, 8vw, 64px);
+
             font-weight: normal;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
+
+            letter-spacing: 0.5px;
+
+            line-height: 1.15;
+
+            margin-bottom: 22px;
         }
 
-        .subtitle {
-            font-size: 18px;
-            line-height: 1.7;
-            opacity: 0.85;
-            margin-bottom: 40px;
+        /* TEXTO */
+
+        .message {
+            font-size: clamp(19px, 4vw, 24px);
+
+            line-height: 1.8;
+
+            color: rgba(244, 247, 242, 0.82);
         }
+
+        /* CORAÇÃO */
+
+        .heart {
+            display: inline-block;
+
+            margin-left: 5px;
+
+            animation:
+                heartbeat 2.5s ease-in-out infinite;
+        }
+
+        /* BOTÃO */
 
         button {
-            border: 1px solid rgba(255, 255, 255, 0.35);
-            background: rgba(255, 255, 255, 0.08);
-            color: white;
+            margin-top: 34px;
 
-            padding: 15px 35px;
+            padding: 14px 34px;
+
+            border:
+                1px solid rgba(230, 245, 233, 0.3);
+
             border-radius: 40px;
 
-            font-size: 16px;
-            font-family: inherit;
+            background:
+                rgba(255, 255, 255, 0.07);
+
+            color: white;
+
+            font:
+                16px Georgia,
+                "Times New Roman",
+                serif;
 
             cursor: pointer;
+
+            opacity: 0;
+
+            animation:
+                buttonAppear 1s ease 1.2s forwards;
 
             transition:
                 background 0.3s ease,
@@ -73,70 +365,191 @@
         }
 
         button:hover {
-            background: rgba(255, 255, 255, 0.16);
-            transform: translateY(-3px);
+            background:
+                rgba(255, 255, 255, 0.14);
+
+            transform:
+                translateY(-2px);
         }
+
+        /* ESCONDER */
 
         .hidden {
             display: none;
         }
 
-        .message {
-            animation: appear 1s ease forwards;
-        }
+        /* ANIMAÇÕES */
 
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
+        .next-message {
+            animation:
+                appear 1s ease forwards;
         }
 
         @keyframes appear {
+
             from {
                 opacity: 0;
-                transform: translateY(15px);
+
+                transform:
+                    translateY(18px);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
+
+                transform:
+                    translateY(0);
             }
         }
+
+        @keyframes buttonAppear {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-7px);
+            }
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform:
+                    scale(1);
+            }
+
+            50% {
+                transform:
+                    scale(1.12);
+            }
+        }
+
+        /* CELULAR */
+
+        @media (max-width: 600px) {
+
+            .lake {
+                bottom: -11vh;
+
+                height: 38vh;
+            }
+
+            .content {
+                margin-top: -5vh;
+            }
+        }
+
     </style>
 </head>
 
 <body>
 
-    <main class="container">
+    <main class="scene">
 
-        <div class="frog">🐸</div>
+        <div class="moon-glow"></div>
 
-        <section id="inicio">
+        <div class="lake"></div>
 
-            <h1>Oi, Bel.</h1>
+        <!-- VAGALUMES -->
 
-            <p class="subtitle">
-                Tem uma coisinha aqui esperando por você.
-            </p>
+        <div
+            class="fireflies"
+            aria-hidden="true"
+        >
 
-            <button onclick="abrirSurpresa()">
-                entrar
-            </button>
+            <span class="firefly"></span>
+            <span class="firefly"></span>
+            <span class="firefly"></span>
+            <span class="firefly"></span>
+            <span class="firefly"></span>
+            <span class="firefly"></span>
+            <span class="firefly"></span>
+            <span class="firefly"></span>
+            <span class="firefly"></span>
+            <span class="firefly"></span>
+            <span class="firefly"></span>
+            <span class="firefly"></span>
 
-        </section>
+        </div>
 
 
-        <section id="surpresa" class="hidden">
+        <!-- MENSAGEM -->
 
-            <h1>Você encontrou. 💚</h1>
+        <section class="content">
 
-            <p class="subtitle">
-                Mas isso aqui ainda está só começando...
-            </p>
+            <div class="tiny-frog">
+                🐸
+            </div>
+
+
+            <div id="inicio">
+
+                <h1>
+                    Oi, linda!
+                </h1>
+
+
+                <p class="message">
+
+                    Primeiro de tudo,<br>
+
+                    Feliz aniversário
+                    <span class="heart">♡</span>
+
+                </p>
+
+
+                <button onclick="abrirSurpresa()">
+
+                    continuar
+
+                </button>
+
+            </div>
+
+
+            <!-- SEGUNDA TELA -->
+
+            <div
+                id="surpresa"
+                class="hidden next-message"
+            >
+
+                <h1>
+                    Você encontrou. 💚
+                </h1>
+
+                <p class="message">
+
+                    Mas isso aqui ainda está
+                    só começando...
+
+                </p>
+
+            </div>
 
         </section>
 
@@ -147,9 +560,15 @@
 
         function abrirSurpresa() {
 
-            document.getElementById("inicio").classList.add("hidden");
+            document
+                .getElementById("inicio")
+                .classList
+                .add("hidden");
 
-            document.getElementById("surpresa").classList.remove("hidden");
+            document
+                .getElementById("surpresa")
+                .classList
+                .remove("hidden");
 
         }
 
